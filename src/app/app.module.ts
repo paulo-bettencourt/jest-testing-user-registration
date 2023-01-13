@@ -7,6 +7,7 @@ import { UserRegistrationSuccessComponent } from './user-registration-success/us
 import {UserRegistrationSuccessModule} from "./user-registration-success/user-registration-success.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UserRegistrationGuard} from "./guards/can-activate";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {UserRegistrationGuard} from "./guards/can-activate";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [UserRegistrationGuard],
   bootstrap: [AppComponent]
