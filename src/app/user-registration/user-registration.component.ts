@@ -14,6 +14,7 @@ export class UserRegistrationComponent {
 
 
   onSubmit() {
-    this.router.navigate(['registration-success'])
+    localStorage.setItem('AirlineRegister', 'true');
+    this.router.navigate(['registration-success']);
   }
 }

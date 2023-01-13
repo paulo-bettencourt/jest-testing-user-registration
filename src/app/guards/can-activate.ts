@@ -1,18 +1,25 @@
 import {Injectable} from "@angular/core";
-import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from "@angular/router";
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from "@angular/router";
 import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserRegistrationGuard implements CanActivate {
-  constructor() {}
+
+  constructor(private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean|UrlTree>|Promise<boolean|UrlTree>|boolean|UrlTree {
-    console.log("alright")
-    return true;
+    console.log("entrou")
+
+    if(localStorage.getItem('AirlineRegister')) {
+      return true;
+    } else {
+      return this.router.parseUrl('');
+    }
+
   }
 }
