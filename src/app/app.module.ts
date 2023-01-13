@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { UserRegistrationSuccessComponent } from './user-registration-success/user-registration-success.component';
 import {UserRegistrationSuccessModule} from "./user-registration-success/user-registration-success.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {UserRegistrationGuard} from "./guards/can-activate";
 
 @NgModule({
   declarations: [
@@ -13,9 +15,11 @@ import {UserRegistrationSuccessModule} from "./user-registration-success/user-re
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [UserRegistrationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
