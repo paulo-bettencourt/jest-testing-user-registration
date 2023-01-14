@@ -8,10 +8,7 @@ import {Router} from "@angular/router";
 })
 export class UserRegistrationComponent {
 
-  constructor(private router: Router) {
-
-  }
-
+  constructor(private router: Router) {}
 
   onSubmit() {
     localStorage.setItem('AirlineRegister', 'true');

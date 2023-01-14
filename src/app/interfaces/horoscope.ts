@@ -1,4 +1,4 @@
-export interface HoroscopeInterface {
+export interface Horoscope {
   date_range: string;
   current_date: string;
   description: string;

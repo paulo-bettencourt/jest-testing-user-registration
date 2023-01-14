@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
 import {Observable} from "rxjs";
 import {UserRegisterService} from "../services/user-register.service";
-import {HoroscopeInterface} from "../interfaces/horoscope.interface";
+import {Horoscope} from "../interfaces/horoscope";
 
 @Injectable({ providedIn: 'root' })
 export class UserRegisterResolver implements Resolve<any> {
@@ -11,7 +11,7 @@ export class UserRegisterResolver implements Resolve<any> {
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<HoroscopeInterface>|Promise<HoroscopeInterface>|any {
+  ): Observable<Horoscope>|Promise<Horoscope>|any {
 
     return this.service.getHoroscopeData();
 

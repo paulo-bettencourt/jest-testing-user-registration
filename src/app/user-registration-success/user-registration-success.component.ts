@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Data} from "@angular/router";
-import {HoroscopeInterface} from "../interfaces/horoscope.interface";
+import {Horoscope} from "../interfaces/horoscope";
+import {UserRegisterService} from "../services/user-register.service";
+import {Observable} from "rxjs";
+import {UserReduxRegisterService} from "../services/redux.service";
 
 @Component({
   selector: 'app-user-registration-success',
@@ -9,7 +12,7 @@ import {HoroscopeInterface} from "../interfaces/horoscope.interface";
 })
 export class UserRegistrationSuccessComponent implements OnInit{
 
-  data: HoroscopeInterface = {
+  data: Horoscope = {
     date_range: 'string',
     current_date: 'string',
     description: 'string',
@@ -19,15 +22,17 @@ export class UserRegistrationSuccessComponent implements OnInit{
     lucky_number: 'string',
     lucky_time: 'string'
   };
+  userData$: Observable<any>;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private userRegisterService: UserReduxRegisterService) {
+    this.userData$ = this.userRegisterService.entities$;
+    this.userRegisterService.getAll();
+    console.log("NGRX", this.userData$)
   }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe((data: Data)  => {
-      // do something with your resolved data ...
-      this.data = data['data'],
-      console.log("DATA DO RESOLVER", data)
+      this.data = data['data']
     })
   }
 
