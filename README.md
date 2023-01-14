@@ -1,10 +1,14 @@
-# JestTestingUserRegister
+# Jest Testing User Register Form
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Screenshot
+
+<img width="1782" alt="Screenshot 2023-01-14 at 14 31 06" src="https://user-images.githubusercontent.com/37920932/212490342-d50761a5-68da-48d0-a4fa-938ecbdd5a3d.png">
 
 ## Code scaffolding
 
