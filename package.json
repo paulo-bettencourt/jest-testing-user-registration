@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run sass & ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "sass": "sass --watch src/app/assets/sass/main.scss src/app/assets/css/main.css"
   },
   "private": true,
   "dependencies": {
