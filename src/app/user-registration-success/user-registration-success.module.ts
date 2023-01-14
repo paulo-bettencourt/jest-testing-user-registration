@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import {UserRegistrationSuccessComponent} from "./user-registration-success.component";
 import {RouterModule, Routes} from "@angular/router";
 import {UserRegistrationGuard} from "../guards/can-activate";
+import {EntityDataService} from "@ngrx/data";
+import {UserDataService} from "../services/user-redux-data.service";
 
 const routes: Routes = [
   {
@@ -20,7 +22,14 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   providers: [
-    UserRegistrationGuard
+    UserRegistrationGuard,
+    UserDataService
   ]
 })
-export class UserRegistrationSuccessModule { }
+export class UserRegistrationSuccessModule {
+  constructor(entityDataService: EntityDataService,
+              userDataService: UserDataService,
+  ) {
+    entityDataService.registerService('UserRegister', userDataService); // <-- register it
+  }
+}

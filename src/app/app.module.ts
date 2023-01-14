@@ -14,6 +14,11 @@ import {UserRegisterService} from "./services/user-register.service";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {UserReduxRegisterService} from "./services/redux.service";
 
+const defaultDataServiceConfig: DefaultDataServiceConfig = {
+  root: 'https://aztro.sameerkumar.website/',
+  timeout: 3000, // request timeout
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +35,7 @@ import {UserReduxRegisterService} from "./services/redux.service";
     EntityDataModule.forRoot(entityConfig),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
-  providers: [UserRegistrationGuard],
+  providers: [UserRegistrationGuard, { provide: DefaultDataServiceConfig, useValue:    defaultDataServiceConfig }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

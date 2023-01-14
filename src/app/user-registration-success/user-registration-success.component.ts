@@ -4,6 +4,7 @@ import {Horoscope} from "../interfaces/horoscope";
 import {UserRegisterService} from "../services/user-register.service";
 import {Observable} from "rxjs";
 import {UserReduxRegisterService} from "../services/redux.service";
+import {UserDataService} from "../services/user-redux-data.service";
 
 @Component({
   selector: 'app-user-registration-success',
